@@ -1,10 +1,9 @@
 # Создаем временный Докер-образ и называем его builder
 FROM golang:1.18 AS builder
 WORKDIR /app
-COPY . .
+COPY .. .
 # Компилируем приложение специально для дальнейшего запуска в Alpine
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
-
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app ./cmd
 
 # Создаем финальный Докер-образ на базе легковесного alpine
 FROM alpine:latest
