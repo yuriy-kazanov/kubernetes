@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: static-web
+  namespace: lesson14
+  labels:
+    app: goweb
+spec:
+  containers:
+    - name: web
+      image: yurrezzz/lesson1:v0.2
+      ports:
+        - name: web
+          containerPort: 8080
+          protocol: TCP

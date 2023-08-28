@@ -4,7 +4,7 @@ services:
   myapp:
     build:
       context: ./
-      dockerfile: ./build/Dockerfile
+      dockerfile: Dockerfile
     restart: always
     ports:
       - '8080:8080'
