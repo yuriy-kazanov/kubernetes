@@ -1,11 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: declarative-deployment
+  name: goapp-deployment
+  namespace: lesson15
   labels:
-    app: go-web
+    app: goapp
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: goapp
@@ -15,7 +16,7 @@ spec:
         app: goapp
     spec:
       containers:
-        - name: goapp
+        - name: web
           image: yurrezzz/lesson1:v0.2
           ports:
             - containerPort: 8080
